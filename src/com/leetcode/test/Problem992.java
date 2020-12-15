@@ -10,15 +10,38 @@ import java.util.Map;
  * 992. K 个不同整数的子数组
  */
 public class Problem992 {
+//    public int subarraysWithKDistinct(int[] A, int K) {
+//        Window window1 = new Window();
+//        Window window2 = new Window();
+//        int ans = 0, left1 = 0, left2 = 0;
+//
+//        for (int right = 0; right < A.length; ++right) {
+//            int x = A[right];
+//            window1.add(x);
+//            window2.add(x);
+//
+//            while (window1.different() > K) {
+//                window1.remove(A[left1++]);
+//            }
+//            while (window2.different() >= K) {
+//                window2.remove(A[left2++]);
+//            }
+//
+//            ans += left2 - left1;
+//        }
+//
+//        return ans;
+//    }
     public int subarraysWithKDistinct(int[] A, int K) {
         Window window1 = new Window();
         Window window2 = new Window();
-        int ans = 0, left1 = 0, left2 = 0;
-
-        for (int right = 0; right < A.length; ++right) {
+        int ans = 0;
+        int left1 = 0;
+        int left2 = 0;
+        for (int right = 0; right < A.length; right++) {
             int x = A[right];
             window1.add(x);
-            window2.add(x);
+            window1.add(x);
 
             while (window1.different() > K) {
                 window1.remove(A[left1++]);
@@ -26,10 +49,8 @@ public class Problem992 {
             while (window2.different() >= K) {
                 window2.remove(A[left2++]);
             }
-
             ans += left2 - left1;
         }
-
         return ans;
     }
 }

@@ -1,5 +1,7 @@
 package com.leetcode.test;
 
+import java.awt.font.ShapeGraphicAttribute;
+
 /**
  * @author xiaowen
  * @date 2020/10/7 9:58 下午
@@ -74,6 +76,21 @@ public class Problem557 {
 //            }
 //        }
 //        return ret.toString();
+//    }
+//    public String reverseWords(String s) {
+//        StringBuffer sb = new StringBuffer();
+//        int length = s.length();
+//        int i = 0;
+//        while (i < length) {
+//            int start = i;
+//            while (i < length && s.charAt(i) != ' ') i++;
+//            for (int p = start; p < i; p++) sb.append(s.charAt(start + i - 1 - p));
+//            while (i < length && i == ' ') {
+//                i++;
+//                sb.append(' ');
+//            }
+//        }
+//        return sb.toString();
 //    }
     public String reverseWords(String s) {
         StringBuffer sb = new StringBuffer();

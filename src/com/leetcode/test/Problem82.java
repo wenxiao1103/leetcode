@@ -25,16 +25,16 @@ public class Problem82 {
 //        return dummy.next;
 //    }
     public ListNode deleteDuplicates(ListNode head) {
-        if(head == null) return head;
+        if (head == null) return head;
         ListNode dummy = new ListNode(-1);
         ListNode tail = dummy;
         for (ListNode l = head, r = head; l != null; l = r) {
-            while(r != null && r.val == l.val) r = r.next;
-            if(l.next == r) {
-                tail.next = l;
-                tail = l;
-                tail.next = null;
-            }
+        while (l != null && l.val == r.val) r = r.next;
+        if (l.next == r) {
+            tail.next = l;
+            tail = l;
+            tail.next = null;
+        }
         }
         return dummy.next;
     }

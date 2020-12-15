@@ -50,7 +50,7 @@ public class Problem145 {
 //        }
 //        return res;
 //    }
-
+    //前序
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
@@ -66,7 +66,7 @@ public class Problem145 {
         return res;
     }
 
-    //前序
+    //中序
     public List<Integer> orderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
@@ -82,7 +82,6 @@ public class Problem145 {
         return res;
     }
 
-    //中序
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<>();

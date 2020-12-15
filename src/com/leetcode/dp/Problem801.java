@@ -35,7 +35,7 @@ public class Problem801 {
                 n2 = Math.min(n2, n1);
                 s2 = Math.min(s2, s1 + 1);
             }
-            if (A[i-1] < A[i] && B[i-1] < B[i]) {
+            if (A[i-1] < B[i] && B[i-1] < A[i]) {
                 n2 = Math.min(n2, s1);
                 s2 = Math.min(s2, n1 + 1);
             }

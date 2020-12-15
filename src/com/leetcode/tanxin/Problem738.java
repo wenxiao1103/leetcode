@@ -10,13 +10,21 @@ public class Problem738 {
 //
 //        return Integer.parseInt(String.valueOf(S));
 //    }
+//    public int monotoneIncreasingDigits(int N) {
+//        char[] S = String.valueOf(N).toCharArray();
+//        int i = 1;
+//        while (i < S.length && S[i-1] <= S[i]) i++;
+//        while (0 < i && i < S.length && S[i-1] > S[i]) S[--i]--;
+//        for (int j = i + 1; j < S.length; j++) S[j] = '9';
+//
+//        return Integer.parseInt(String.valueOf(S));
+//    }
     public int monotoneIncreasingDigits(int N) {
         char[] S = String.valueOf(N).toCharArray();
         int i = 1;
-        while (i < S.length && S[i-1] <= S[i]) i++;
-        while (0 < i && i < S.length && S[i-1] > S[i]) S[--i]--;
+        while ( i < S.length && S[i-1] <= S[i]) i++;
+        while ( 0 < i && i < S.length && S[i-1] > S[i]) S[--i]--;
         for (int j = i + 1; j < S.length; j++) S[j] = '9';
-
         return Integer.parseInt(String.valueOf(S));
     }
     //1.先将整数N转换成字符串数组

@@ -30,30 +30,56 @@ public class Problem1147 {
 //            if(char1[m]!=char1[n-i+(m-j)]) return false;
 //        return true;
 //    }
-    public int longestDecomposition(String text){
-        int n = text.length(), ans = 1;
-        int[] dp = new int[n/2+1];
+//    public int longestDecomposition(String text){
+//        int n = text.length(), ans = 1;
+//        int[] dp = new int[n/2+1];
+//        char[] char1 = text.toCharArray();
+//        Arrays.fill(dp, -1);
+//        dp[0] = 0;
+//        int left = 0;
+//        for (int i = 1; i <= n/2; i++){
+//            for (int j = left; j < i; j++){
+//                if(dp[j] == -1) continue;
+//                if(!check(char1, j, i, n)) continue;
+//                dp[i] = dp[j] + 1;
+//                left = i;
+//            }
+//        }
+//        return Math.max(ans, dp[left]*2+(left*2 < n?1:0));
+//    }
+//
+//    public boolean check(char[] char1, int j, int i, int n){
+//        for(int m = j; m < i; m++){
+//            if(char1[m] != char1[n-i+(m-j)]) return false;
+//        }
+//            return true;
+//    }
+    //采用动态规划，dp[i]表示字符串0到i的短式回文的个数，如果i到j有短式回文，则dp[j] = dp[i]+1;
+    //i到j，对应的字符串位置，为n-i+(m-j),m是在i到j之间
+    public int longestDecomposition(String text) {
+        int n = text.length();
+        int ans = 1;
+        int[] dp = new int[n/2 + 1];
         char[] char1 = text.toCharArray();
         Arrays.fill(dp, -1);
         dp[0] = 0;
         int left = 0;
-        for (int i = 1; i <= n/2; i++){
-            for (int j = left; j < i; j++){
-                if(dp[j] == -1) continue;
-                if(!check(char1, j, i, n)) continue;
+        for (int i = 1; i <= n/2; i++) {
+            for (int j = left; j < i; j++) {
+                if (dp[j] == -1) continue;
+                if (!check(char1, j, i, n)) continue;
                 dp[i] = dp[j] + 1;
                 left = i;
             }
         }
         return Math.max(ans, dp[left]*2+(left*2 < n?1:0));
     }
-
-    public boolean check(char[] char1, int j, int i, int n){
-        for(int m = j; m < i; m++){
-            if(char1[m] != char1[n-i+(m-j)]) return false;
+    public boolean check(char[] char1, int j, int i, int n) {
+        for (int m = j; m < i; m++) {
+            if (char1[m] != char1[n-i+(m-j)]) {
+                return false;
+            }
         }
-            return true;
+        return true;
     }
-    //采用动态规划，dp[i]表示字符串0到i的短式回文的个数，如果i到j有短式回文，则dp[j] = dp[i]+1;
-    //i到j，对应的字符串位置，为n-j+(m-i),m是在i到j之间
 }

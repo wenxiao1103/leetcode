@@ -16,13 +16,29 @@ public class Problem494 {
 //        }
 //        return dp[p];
 //    }
+//    public int findTargetSumWays(int[] nums, int S) {
+//        int sum = 0;
+//        for (int n : nums) {
+//            sum += n;
+//        }
+//        if (sum < S || (S+sum) % 2 != 0) return 0;
+//        //S和sum的总和只能为偶数
+//        int p = (S + sum) / 2;
+//        int[] dp = new int[p+1];
+//        dp[0] = 1;
+//        for (int num : nums) {
+//            for (int i = p; i >= num; i--) {
+//                dp[i] = dp[i] + dp[i - num];
+//            }
+//        }
+//        return dp[p];
+//    }
     public int findTargetSumWays(int[] nums, int S) {
         int sum = 0;
         for (int n : nums) {
             sum += n;
         }
-        if (sum < S || (S+sum) % 2 != 0) return 0;
-        //S和sum的总和只能为偶数
+        if (sum < S || (S + sum) % 2 != 0) return 0;
         int p = (S + sum) / 2;
         int[] dp = new int[p+1];
         dp[0] = 1;

@@ -1,4 +1,8 @@
 package com.leetcode.dp;
+
+/**
+ * 467.环绕字符串中唯一的子字符串
+ * */
 //环绕字符串中唯一的子字符串,采用动态规划
 public class Problem467 {
 //    public int findSubstringInWraproundString(String p){

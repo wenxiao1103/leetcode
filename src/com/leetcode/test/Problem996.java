@@ -71,13 +71,27 @@ public class Problem996 {
         }
         return ans;
     }
-    public int dfs(int x, int todo) {
+//    public int dfs(int x, int todo) {
+//        count.put(x, count.get(x) - 1);
+//        int ans = 1;
+//        if (todo != 0) {
+//            ans = 0;
+//            for (int y : graph.get(x)) if (count.get(y) != 0) {
+//                ans += dfs(y, todo - 1);
+//            }
+//        }
+//        count.put(x, count.get(x) + 1);
+//        return ans;
+//    }
+    public int dfs(int x, int num) {
         count.put(x, count.get(x) - 1);
         int ans = 1;
-        if (todo != 0) {
+        if (num != 0) {
             ans = 0;
-            for (int y : graph.get(x)) if (count.get(y) != 0) {
-                ans += dfs(y, todo - 1);
+            for (int y : graph.get(x)) {
+                if (count.get(y) != 0) {
+                    ans += dfs(y, num-1);
+                }
             }
         }
         count.put(x, count.get(x) + 1);
